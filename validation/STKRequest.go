@@ -1,4 +1,4 @@
-package requests
+package validation
 
 type STKRequest struct {
 	Type        string `json:"type"`
