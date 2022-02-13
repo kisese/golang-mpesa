@@ -2,7 +2,7 @@ package utils
 
 //Queues
 const STK_REQUESTS = "STK_REQUESTS"
-const STK_CALLBACKS = "STK_CALLBACK"
+const STK_CALLBACKS = "STK_CALLBACKS"
 
 //Daraja
 const DARAJA_CONSUMER_KEY = "XXX"

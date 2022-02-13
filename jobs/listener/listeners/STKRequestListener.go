@@ -34,13 +34,6 @@ func STKRequestListener(ch *amqp.Channel) {
 
 			timestamp := time.Now().Format("20060102150405")
 			callBackURL := "https://255a5142af515cb16053282b5d564739.m.pipedream.net"
-			logger.Log.Debugw("STK Credentials ",
-				"timestamp", timestamp,
-				"paybill", payload.Paybill,
-				"passkey", utils.DARAJA_PASSKEY,
-				"full", payload.Paybill+utils.DARAJA_PASSKEY+timestamp,
-				"callBackURL", callBackURL,
-			)
 			password := b64.StdEncoding.EncodeToString([]byte(payload.Paybill + utils.DARAJA_PASSKEY + timestamp))
 
 			fmt.Printf("Operation: %s", payload.Msisdn)
@@ -57,7 +50,7 @@ func STKRequestListener(ch *amqp.Channel) {
 				"PhoneNumber":       payload.Msisdn,
 				"CallBackURL":       callBackURL,
 				"AccountReference":  "DARAJA_XXX",
-				"TransactionDesc":   "Subscription",
+				"TransactionDesc":   "Payment",
 			})
 
 			header := http.Header{
