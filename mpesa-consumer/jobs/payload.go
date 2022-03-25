@@ -1,4 +1,4 @@
-package requests
+package jobs
 
 type STKRequestPayload struct {
 	Amount      string `json:"amount"`

@@ -5,15 +5,15 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/tidwall/gjson"
-	"gostk/jobs/publisher"
-	"gostk/logger"
-	"gostk/utils"
+	"gostk/mpesa-consumer/infrastructure"
+	"gostk/mpesa-consumer/jobs"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 func ProcessSTKCallback(context *gin.Context) {
-	logger.Log.Debugw("Init STK Callback")
+	infrastructure.Log.Debugw("Init STK Callback")
 
 	ByteBody, _ := ioutil.ReadAll(context.Request.Body)
 	context.Request.Body = ioutil.NopCloser(bytes.NewBuffer(ByteBody))
@@ -25,14 +25,15 @@ func ProcessSTKCallback(context *gin.Context) {
 
 	CheckoutRequestID := gjson.Get(body, "Body.stkCallback.CheckoutRequestID")
 
-	logger.Log.Debugw("Request json", "request", body, "CheckoutRequestID", CheckoutRequestID,
+	infrastructure.Log.Debugw("Request json", "request", body, "CheckoutRequestID", CheckoutRequestID,
 		"len", len(CheckoutRequestID.Str))
 
 	if len(CheckoutRequestID.Str) > 0 {
 		//Queue callback
-		publisher.Publish(request, utils.STK_CALLBACKS)
+		stkCallbacks := os.Getenv("STK_CALLBACKS")
+		jobs.Publish(request, stkCallbacks)
 	} else {
-		logger.Log.Errorw("STK Callback Parse Error")
+		infrastructure.Log.Errorw("STK Callback Parse Error")
 		context.JSON(http.StatusBadRequest, gin.H{"error": "STK Callback Parse Error"})
 	}
 

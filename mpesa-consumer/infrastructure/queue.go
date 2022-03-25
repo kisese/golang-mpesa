@@ -1,8 +1,7 @@
-package queue_utils
+package infrastructure
 
 import (
 	"github.com/streadway/amqp"
-	"gostk/logger"
 )
 
 func Consume(ch *amqp.Channel, queue string) <-chan amqp.Delivery {
@@ -17,7 +16,7 @@ func Consume(ch *amqp.Channel, queue string) <-chan amqp.Delivery {
 	)
 
 	if err != nil {
-		logger.Log.Errorw("RabbitMQ Consumer queue consumer Error ", "error", err, "queue", queue)
+		Log.Errorw("RabbitMQ Consumer queue consumer Error ", "error", err, "queue", queue)
 	}
 	return msgs
 }

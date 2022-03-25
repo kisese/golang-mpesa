@@ -1,4 +1,4 @@
-package logger
+package infrastructure
 
 import (
 	"go.uber.org/zap"

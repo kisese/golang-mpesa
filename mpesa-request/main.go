@@ -2,14 +2,15 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"gostk/controllers"
+	"gostk/mpesa-request/controllers"
+	"gostk/mpesa-request/infrastructure"
 )
 
 func main() {
+	infrastructure.LoadEnv()
 	router := gin.Default()
 
 	router.POST("/stk-request", controllers.ProcessSTKPush)
-	router.POST("/stk-callback", controllers.ProcessSTKCallback)
 
-	router.Run()
+	router.Run(":8000")
 }

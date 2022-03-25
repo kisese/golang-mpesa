@@ -1,22 +1,22 @@
-package publisher
+package jobs
 
 import (
 	"encoding/json"
 	"fmt"
 	"github.com/streadway/amqp"
-	"gostk/logger"
+	"gostk/mpesa-request/infrastructure"
 	"strconv"
 )
 
 func Publish(input interface{}, queue string) bool {
 	//init rabbitmq
 	status := true
-	logger.Log.Debugw("Initialising RabbitMQ Publish ", "queue", queue, "payload", input)
+	infrastructure.Log.Debugw("Initialising RabbitMQ Publish ", "queue", queue, "payload", input)
 
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	if err != nil {
 		status = false
-		logger.Log.Errorw("RabbitMQ Publish Failed Initializing Broker Connection ", "error", err, "queue", queue)
+		infrastructure.Log.Errorw("RabbitMQ Publish Failed Initializing Broker Connection ", "error", err, "queue", queue)
 		panic(err)
 	}
 
@@ -25,7 +25,7 @@ func Publish(input interface{}, queue string) bool {
 	ch, err := conn.Channel()
 	if err != nil {
 		status = false
-		logger.Log.Errorw("RabbitMQ Publish Connection Error ", "error", err, "queue", queue)
+		infrastructure.Log.Errorw("RabbitMQ Publish Connection Error ", "error", err, "queue", queue)
 	}
 	defer ch.Close()
 
@@ -43,7 +43,7 @@ func Publish(input interface{}, queue string) bool {
 	// We can print out the status of our Queue here
 	// this will information like the amount of messages on
 	// the queue
-	logger.Log.Debugw("RabbitMQ Publish Queue Status ", "status", q, "queue", queue, "payload", input)
+	infrastructure.Log.Debugw("RabbitMQ Publish Queue Status ", "status", q, "queue", queue, "payload", input)
 	// Handle any errors if we were unable to create the queue
 	if err != nil {
 		status = false
@@ -53,7 +53,7 @@ func Publish(input interface{}, queue string) bool {
 	inputBytes, err := json.Marshal(input)
 	if err != nil {
 		status = false
-		logger.Log.Errorw("RabbitMQ Publish Payload Marshal Error ", "error", err, "queue", queue)
+		infrastructure.Log.Errorw("RabbitMQ Publish Payload Marshal Error ", "error", err, "queue", queue)
 		return status
 	}
 
@@ -71,10 +71,10 @@ func Publish(input interface{}, queue string) bool {
 
 	if err != nil {
 		status = false
-		logger.Log.Errorw("RabbitMQ Publish Payload Publish Error ", "error", err, "queue", queue)
+		infrastructure.Log.Errorw("RabbitMQ Publish Payload Publish Error ", "error", err, "queue", queue)
 		fmt.Println(err)
 	}
 
-	logger.Log.Debugw("RabbitMQ Publish Successfully Published Message to Queue ~> "+strconv.FormatBool(status), "queue", queue, "payload", input)
+	infrastructure.Log.Debugw("RabbitMQ Publish Successfully Published Message to Queue ~> "+strconv.FormatBool(status), "queue", queue, "payload", input)
 	return status
 }

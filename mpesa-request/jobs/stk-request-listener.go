@@ -1,43 +1,44 @@
-package listeners
+package jobs
 
 import (
 	b64 "encoding/base64"
 	"encoding/json"
 	"fmt"
 	"github.com/streadway/amqp"
-	"gostk/jobs/listener/queue_utils"
-	"gostk/jobs/requests"
-	"gostk/logger"
-	"gostk/utils"
+	"gostk/mpesa-request/infrastructure"
+	utils2 "gostk/mpesa-request/utils"
 	"net/http"
+	"os"
 	"time"
 )
 
 func STKRequestListener(ch *amqp.Channel) {
-	logger.Log.Debugw("Initialising RabbitMQ Main Listener ", "queue", utils.STK_REQUESTS)
+	stkRequests := os.Getenv("STK_REQUESTS_QUEUE")
+	infrastructure.Log.Debugw("Initialising RabbitMQ Main Listener ", "queue", stkRequests)
 
-	queue := utils.STK_REQUESTS
-	msgs := queue_utils.Consume(ch, queue)
+	queue := stkRequests
+	msgs := infrastructure.Consume(ch, queue)
 
 	go func() {
 		for d := range msgs {
-			var payload requests.STKRequestPayload
+			var payload STKRequestPayload
 			message := fmt.Sprintf("%s\n", d.Body)
 
-			logger.Log.Debugw("RabbitMQ Consumer Received Message " + message)
+			infrastructure.Log.Debugw("RabbitMQ Consumer Received Message " + message)
 
 			//Get Payload struct from Queue
 			err := json.Unmarshal([]byte(message), &payload)
 			if err != nil {
-				logger.Log.Errorw("Payload unmarshall error ", "error", err, "queue", queue)
+				infrastructure.Log.Errorw("Payload unmarshall error ", "error", err, "queue", queue)
 			}
 
 			timestamp := time.Now().Format("20060102150405")
 			callBackURL := "https://255a5142af515cb16053282b5d564739.m.pipedream.net"
-			password := b64.StdEncoding.EncodeToString([]byte(payload.Paybill + utils.DARAJA_PASSKEY + timestamp))
+			darajaPasskey := os.Getenv("DARAJA_PASSKEY")
+			password := b64.StdEncoding.EncodeToString([]byte(payload.Paybill + darajaPasskey + timestamp))
 
 			fmt.Printf("Operation: %s", payload.Msisdn)
-			token := utils.GetDarajaToken()
+			token := utils2.GetDarajaToken()
 
 			requestBody, _ := json.Marshal(map[string]string{
 				"BusinessShortCode": payload.Paybill,
@@ -59,7 +60,8 @@ func STKRequestListener(ch *amqp.Channel) {
 				"cache-control": []string{"no-cache"},
 			}
 
-			utils.PostRequest(requestBody, header, utils.DARAJA_STK_URL)
+			darajaStkUrl := os.Getenv("DARAJA_STK_URL")
+			utils2.PostRequest(requestBody, header, darajaStkUrl)
 		}
 	}()
 }

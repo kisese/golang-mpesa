@@ -1,4 +1,4 @@
-module golang-mpesa-stk
+module gostk/mpesa-request
 
 go 1.15
 
