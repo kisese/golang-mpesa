@@ -28,7 +28,7 @@ func StartQueueConsumer() {
 	 */
 	infrastructure.Log.Debugw("RabbitMQ Consumer Begin listening on queues ")
 	consumers.ProcessSTKPushRequest(ch)
-
+	consumers.ProcessSTKCallbackRequest(ch)
 	/**
 	*
 	* BEGIN LISTENINNG ON QUEUES
