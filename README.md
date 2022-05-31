@@ -28,7 +28,7 @@ cd cmd
 go run main.go server
 go run main.go worker
 ```
-Once this is done. You can access the apps as below.
+Once this is done. You can access the API as below.
 
 For an STK Request
 
@@ -42,7 +42,8 @@ POST
 }
 ```
 
-If everything is ok you can check your phone for the M-PESA popup.
+If everything is ok you can check your phone for the M-PESA payment pop-up.
+
 Mpesa callbacks will be received on
 ```bash
 http://localhost:8080/stk/callback
