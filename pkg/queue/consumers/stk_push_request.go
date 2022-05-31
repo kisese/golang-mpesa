@@ -3,8 +3,8 @@ package consumers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/kisese/golang_mpesa/pkg/http/stk/forms"
-	"github.com/kisese/golang_mpesa/pkg/http/stk/service"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/forms"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/service"
 	"github.com/kisese/golang_mpesa/pkg/infrastructure"
 	"github.com/kisese/golang_mpesa/pkg/queue/utils"
 	"github.com/streadway/amqp"

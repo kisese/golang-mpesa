@@ -17,7 +17,10 @@ go mod tidy
 
 ### Local Setup
 
-Start your local rabbitmq server or run via docker
+Start your local rabbitmq server or run rabbitmq via docker
+```bash
+docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+```
 
 Start the main API and the queue consumer
 ```bash
@@ -30,7 +33,7 @@ Once this is done. You can access the apps as below.
 For an STK Request
 
 ```bash
-http://localhost:8080/stk-request
+http://localhost:8080/stk/request
 
 POST
 {
@@ -42,7 +45,7 @@ POST
 If everything is ok you can check your phone for the M-PESA popup.
 Mpesa callbacks will be received on
 ```bash
-http://localhost:8080/stk-callback
+http://localhost:8080/stk/callback
 ```
 
 For env setup, you can find an example env file in the pkg folder,  create your copies and fill as necessary

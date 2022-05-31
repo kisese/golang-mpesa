@@ -237,3 +237,57 @@ net/http.(*conn).serve
 2022-05-31T21:14:41.993+0300	[35mDEBUG[0m	service/stk_request.go:80	Daraja Token Response 	{"response": {"access_token":"NEPYlR12Ck1chDexMmM6I9EhIzzO","expires_in":"3599"}, "token": "NEPYlR12Ck1chDexMmM6I9EhIzzO"}
 2022-05-31T21:14:41.993+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer NEPYlR12Ck1chDexMmM6I9EhIzzO"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
 2022-05-31T21:14:42.367+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"CheckoutRequestID":"ws_CO_31052022211442476728762287","CustomerMessage":"Success. Request accepted for processing","MerchantRequestID":"82119-82093890-2","ResponseCode":"0","ResponseDescription":"Success. Request accepted for processing"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T22:23:55.379+0300	[34mINFO[0m	cmd/main.go:35	main app
+2022-05-31T22:24:02.171+0300	[34mINFO[0m	cmd/main.go:43	worker
+2022-05-31T22:24:02.171+0300	[35mDEBUG[0m	queue/consumer.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:24:02.171+0300	[35mDEBUG[0m	infrastructure/queue.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:24:02.173+0300	[31mERROR[0m	infrastructure/queue.go:13	RabbitMQ Consumer Fcailed Initializing Broker Connection 	{"error": "dial tcp [::1]:5672: connect: connection refused"}
+github.com/kisese/golang_mpesa/pkg/infrastructure.Dial
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/infrastructure/queue.go:13
+github.com/kisese/golang_mpesa/pkg/queue.StartQueueConsumer
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/queue/consumer.go:11
+main.main.func2
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/cmd/main.go:45
+github.com/urfave/cli.HandleAction
+	/Users/kisese/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:526
+github.com/urfave/cli.Command.Run
+	/Users/kisese/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:173
+github.com/urfave/cli.(*App).Run
+	/Users/kisese/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:277
+main.main
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/cmd/main.go:50
+runtime.main
+	/usr/local/Cellar/go/1.17.6/libexec/src/runtime/proc.go:255
+2022-05-31T22:28:15.189+0300	[34mINFO[0m	cmd/main.go:43	worker
+2022-05-31T22:28:15.190+0300	[35mDEBUG[0m	queue/consumer.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:28:15.190+0300	[35mDEBUG[0m	infrastructure/queue.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:28:15.204+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_REQUESTS","Messages":0,"Consumers":0}, "queue": "STK_PUSH_REQUESTS"}
+2022-05-31T22:28:15.209+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_CALLBACKS","Messages":0,"Consumers":0}, "queue": "STK_PUSH_CALLBACKS"}
+2022-05-31T22:28:15.213+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-IZjfw9zwue9IZbs56LQTBg","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:28:15.217+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-z46V0vT_6Td-5xVAQFqWag","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:28:15.221+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-Lvy2v8O23BLzdiz2wny7Cg","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:28:15.221+0300	[35mDEBUG[0m	queue/consumer.go:29	RabbitMQ Consumer Begin listening on queues 
+2022-05-31T22:28:15.222+0300	[35mDEBUG[0m	consumers/stk_push_request.go:19	Queue Listening 	{"queue": "STK_PUSH_REQUESTS"}
+2022-05-31T22:28:15.222+0300	[35mDEBUG[0m	queue/consumer.go:39	RabbitMQ Consumer Successfully Connected to our RabbitMQ Instance
+2022-05-31T22:28:15.222+0300	[35mDEBUG[0m	queue/consumer.go:40	 [*] - Waiting for messages
+2022-05-31T22:29:38.642+0300	[34mINFO[0m	cmd/main.go:43	worker
+2022-05-31T22:29:38.642+0300	[35mDEBUG[0m	queue/consumer.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:29:38.642+0300	[35mDEBUG[0m	infrastructure/queue.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:29:38.652+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_REQUESTS","Messages":0,"Consumers":0}, "queue": "STK_PUSH_REQUESTS"}
+2022-05-31T22:29:38.653+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_CALLBACKS","Messages":0,"Consumers":0}, "queue": "STK_PUSH_CALLBACKS"}
+2022-05-31T22:29:38.657+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-I9Z8CbVwaYUgrADqg7je9g","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:29:38.660+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-J3t9DHFjEzAg3Ne8Qil3hw","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:29:38.663+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-NxTlFKwEaiMjjfDKXpoAfQ","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:29:38.663+0300	[35mDEBUG[0m	queue/consumer.go:29	RabbitMQ Consumer Begin listening on queues 
+2022-05-31T22:29:38.664+0300	[35mDEBUG[0m	consumers/stk_push_request.go:19	Queue Listening 	{"queue": "STK_PUSH_REQUESTS"}
+2022-05-31T22:29:38.664+0300	[35mDEBUG[0m	queue/consumer.go:39	RabbitMQ Consumer Successfully Connected to our RabbitMQ Instance
+2022-05-31T22:29:38.664+0300	[35mDEBUG[0m	queue/consumer.go:40	 [*] - Waiting for messages
+2022-05-31T22:29:44.614+0300	[34mINFO[0m	cmd/main.go:35	main app
+2022-05-31T22:29:48.883+0300	[35mDEBUG[0m	queue/publisher.go:14	Initialising RabbitMQ Publish 	{"queue": "STK_PUSH_REQUESTS", "payload": {"msisdn":"254728762287","amount":"100"}}
+2022-05-31T22:29:48.884+0300	[35mDEBUG[0m	infrastructure/queue.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:29:48.898+0300	[35mDEBUG[0m	queue/publisher.go:41	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_REQUESTS","Messages":0,"Consumers":1}, "queue": "STK_PUSH_REQUESTS", "payload": {"msisdn":"254728762287","amount":"100"}}
+2022-05-31T22:29:48.903+0300	[35mDEBUG[0m	queue/publisher.go:74	RabbitMQ Publish Successfully Published Message to Queue ~> true	{"queue": "STK_PUSH_REQUESTS", "payload": {"msisdn":"254728762287","amount":"100"}}
+2022-05-31T22:29:48.907+0300	[35mDEBUG[0m	consumers/stk_push_request.go:26	RabbitMQ Consumer Received Message {"msisdn":"254728762287","amount":"100"}
+2022-05-31T22:29:49.978+0300	[35mDEBUG[0m	service/daraja_token.go:38	Daraja Token Response 	{"response": {"access_token":"BUETBGyC60E8drD1PAaiAieAoVSj","expires_in":"3599"}, "token": "BUETBGyC60E8drD1PAaiAieAoVSj"}
+2022-05-31T22:29:49.978+0300	[35mDEBUG[0m	service/http_post.go:12	PostRequest() 	{"header": {"Authorization":["Bearer BUETBGyC60E8drD1PAaiAieAoVSj"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T22:29:50.648+0300	[35mDEBUG[0m	service/http_post.go:32	POST Response 	{"response": {"CheckoutRequestID":"ws_CO_31052022222950704728762287","CustomerMessage":"Success. Request accepted for processing","MerchantRequestID":"50240-82253068-2","ResponseCode":"0","ResponseDescription":"Success. Request accepted for processing"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}

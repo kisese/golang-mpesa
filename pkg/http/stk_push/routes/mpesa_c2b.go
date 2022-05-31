@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/kisese/golang_mpesa/pkg/http/stk/controllers"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/controllers"
 	"github.com/kisese/golang_mpesa/pkg/infrastructure"
 )
 
@@ -22,7 +22,7 @@ func NewSTKRoute(
 }
 
 func (location STKRoute) Setup() {
-	router := location.Handler.Gin.Group("/mpesa_c2b") //Router group
+	router := location.Handler.Gin.Group("/stk") //Router group
 	{
 		router.POST("/request", location.controller.ProcessSTKPushRequest)
 		router.POST("/callback", location.controller.ProcessSTKCallback)

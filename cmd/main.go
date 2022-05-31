@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/kisese/golang_mpesa/pkg/http/stk/controllers"
-	"github.com/kisese/golang_mpesa/pkg/http/stk/routes"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/controllers"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/routes"
 	"github.com/kisese/golang_mpesa/pkg/infrastructure"
 	"github.com/kisese/golang_mpesa/pkg/queue"
 	"github.com/urfave/cli"
+	"os"
 )
 
 var (
@@ -45,6 +46,8 @@ func main() {
 			},
 		},
 	}
+
+	app.Run(os.Args)
 }
 
 func startMainApp() {

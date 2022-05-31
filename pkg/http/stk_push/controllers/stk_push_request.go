@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"github.com/kisese/golang_mpesa/pkg/http/stk/forms"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/forms"
 	"github.com/kisese/golang_mpesa/pkg/infrastructure"
 	"github.com/kisese/golang_mpesa/pkg/queue"
+	"github.com/kisese/golang_mpesa/pkg/utils"
 	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"net/http"
@@ -30,6 +31,8 @@ func (mpesa *STKController) ProcessSTKPushRequest(context *gin.Context) {
 	}
 
 	queue.Publish(input, os.Getenv("STK_PUSH_REQUESTS_QUEUE"))
+
+	utils.SuccessJSON(context, http.StatusOK, "Location Received")
 }
 
 func (mpesa *STKController) ProcessSTKCallback(context *gin.Context) {
