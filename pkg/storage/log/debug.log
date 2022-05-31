@@ -1,0 +1,239 @@
+2022-05-31T20:43:56.168+0300	[31mERROR[0m	controllers/stk.go:29	edit profile validation error	{"error": "Key: 'STKRequest.Msisdn' Error:Field validation for 'Msisdn' failed on the 'required' tag\nKey: 'STKRequest.Amount' Error:Field validation for 'Amount' failed on the 'required' tag"}
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:29
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T20:52:14.973+0300	[31mFATAL[0m	service/stk_request.go:74	Get token HTTP Do Error 	{"error": "Get \"https//api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials\": unsupported protocol scheme \"\""}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.getDarajaToken
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:74
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:49
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T20:52:27.523+0300	[31mFATAL[0m	service/stk_request.go:74	Get token HTTP Do Error 	{"error": "Get \"https//api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials\": unsupported protocol scheme \"\""}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.getDarajaToken
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:74
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:49
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T20:54:56.306+0300	[31mFATAL[0m	service/stk_request.go:74	Get token HTTP Do Error 	{"error": "Get \"https//api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials\": unsupported protocol scheme \"\""}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.getDarajaToken
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:74
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:49
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T20:56:00.464+0300	[31mFATAL[0m	service/stk_request.go:74	Get token HTTP Do Error 	{"error": "Get \"https//api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials\": unsupported protocol scheme \"\""}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.getDarajaToken
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:74
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:49
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T20:57:18.117+0300	[31mFATAL[0m	service/stk_request.go:74	Get token HTTP Do Error 	{"error": "Get \"http//api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials\": unsupported protocol scheme \"\""}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.getDarajaToken
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:74
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:49
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T21:02:22.938+0300	[35mDEBUG[0m	service/stk_request.go:80	Daraja Token Response 	{"response": {"access_token":"LvbqbwXAGUEqAgbXa9GU4sxXO0ic","expires_in":"3599"}, "token": "LvbqbwXAGUEqAgbXa9GU4sxXO0ic"}
+2022-05-31T21:02:22.938+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"payload": "eyJBbW91bnQiOiIxMDAiLCJNc2lzZG4iOiIyNTQ3ODc2MjI4NyIsIlBheWJpbGwiOiIiLCJDYWxsYmFja1VybCI6IiIsIkJ1c2luZXNzU2hvcnRDb2RlIjoiIiwiUGFzc3dvcmQiOiJZVFkzTWpsbFlqUXpOV0psTmpGbE9HTTFaVFl3TURFNVpHTmhOVE00TW1FeU5qQXhNV00yTkRoak1ESmlZVEUwWlRNelptRmlZbUV5TVdVM1pqYzFPVEl3TWpJd05UTXhNakV3TWpJeSIsIlRpbWVzdGFtcCI6IjIwMjIwNTMxMjEwMjIyIiwiVHJhbnNhY3Rpb25UeXBlIjoiQ3VzdG9tZXJQYXlCaWxsT25saW5lIiwiUGFydHlBIjoiMjU0Nzg3NjIyODciLCJQYXJ0eUIiOiIiLCJQaG9uZU51bWJlciI6IjI1NDc4NzYyMjg3IiwiQ2FsbEJhY2tVUkwiOiIiLCJBY2NvdW50UmVmZXJlbmNlIjoiREFSQUpBX1hYWCIsIlRyYW5zYWN0aW9uRGVzYyI6IlBheW1lbnQifQ==", "headers": {"Authorization":["Bearer LvbqbwXAGUEqAgbXa9GU4sxXO0ic%!(NOVERB)"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:02:22.996+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"404.001.03","errorMessage":"Invalid Access Token","requestId":"25882-21210081-2"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:04:50.159+0300	[35mDEBUG[0m	service/stk_request.go:80	Daraja Token Response 	{"response": {"access_token":"sP5IZcq0q30OTtDvwUcNHRNG33Rr","expires_in":"3599"}, "token": "sP5IZcq0q30OTtDvwUcNHRNG33Rr"}
+2022-05-31T21:04:50.159+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"payload": "eyJBbW91bnQiOiIxMDAiLCJNc2lzZG4iOiIyNTQ3ODc2MjI4NyIsIlBheWJpbGwiOiIiLCJDYWxsYmFja1VybCI6IiIsIkJ1c2luZXNzU2hvcnRDb2RlIjoiIiwiUGFzc3dvcmQiOiJZVFkzTWpsbFlqUXpOV0psTmpGbE9HTTFaVFl3TURFNVpHTmhOVE00TW1FeU5qQXhNV00yTkRoak1ESmlZVEUwWlRNelptRmlZbUV5TVdVM1pqYzFPVEl3TWpJd05UTXhNakV3TkRRNSIsIlRpbWVzdGFtcCI6IjIwMjIwNTMxMjEwNDQ5IiwiVHJhbnNhY3Rpb25UeXBlIjoiQ3VzdG9tZXJQYXlCaWxsT25saW5lIiwiUGFydHlBIjoiMjU0Nzg3NjIyODciLCJQYXJ0eUIiOiIiLCJQaG9uZU51bWJlciI6IjI1NDc4NzYyMjg3IiwiQ2FsbEJhY2tVUkwiOiIiLCJBY2NvdW50UmVmZXJlbmNlIjoiREFSQUpBX1hYWCIsIlRyYW5zYWN0aW9uRGVzYyI6IlBheW1lbnQifQ==", "headers": {"Accept":["application/json"],"Authorization":["Bearer sP5IZcq0q30OTtDvwUcNHRNG33Rr%!(NOVERB)"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:04:50.205+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"404.001.03","errorMessage":"Invalid Access Token","requestId":"21159-25385339-2"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:07:54.389+0300	[35mDEBUG[0m	service/stk_request.go:80	Daraja Token Response 	{"response": {"access_token":"1kiv09crRg82td3XTluejjkjwnBv","expires_in":"3599"}, "token": "1kiv09crRg82td3XTluejjkjwnBv"}
+2022-05-31T21:07:54.389+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer 1kiv09crRg82td3XTluejjkjwnBv"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:07:54.500+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"400.002.02","errorMessage":"Bad Request - Invalid BusinessShortCode","requestId":"97166-37849907-2"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:11:09.629+0300	[35mDEBUG[0m	service/stk_request.go:80	Daraja Token Response 	{"response": {"access_token":"r8W7B7TvrwNYFc9bq17stWySO3XB","expires_in":"3599"}, "token": "r8W7B7TvrwNYFc9bq17stWySO3XB"}
+2022-05-31T21:11:09.630+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer r8W7B7TvrwNYFc9bq17stWySO3XB"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:11:09.716+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"400.002.02","errorMessage":"Bad Request - Invalid PhoneNumber","requestId":"53782-85984984-2"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:12:33.339+0300	[31mERROR[0m	service/stk_request.go:24	STK Payload  	{"input": {"msisdn":"25478762287","amount":"100"}}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:24
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T21:12:33.633+0300	[35mDEBUG[0m	service/stk_request.go:82	Daraja Token Response 	{"response": {"access_token":"Z6LNrJuFTSk3R35eCiOuHoeQNlef","expires_in":"3599"}, "token": "Z6LNrJuFTSk3R35eCiOuHoeQNlef"}
+2022-05-31T21:12:33.633+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer Z6LNrJuFTSk3R35eCiOuHoeQNlef"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:12:33.761+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"400.002.02","errorMessage":"Bad Request - Invalid PhoneNumber","requestId":"11397-37867679-2"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:12:53.007+0300	[31mERROR[0m	service/stk_request.go:24	STK Payload  	{"input": {"msisdn":"254728762287","amount":"100"}}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:24
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T21:12:53.095+0300	[35mDEBUG[0m	service/stk_request.go:82	Daraja Token Response 	{"response": {"access_token":"GnzI0UTKGALSGv85SuU92NL1klw4","expires_in":"3599"}, "token": "GnzI0UTKGALSGv85SuU92NL1klw4"}
+2022-05-31T21:12:53.095+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer GnzI0UTKGALSGv85SuU92NL1klw4"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:12:53.207+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"400.002.02","errorMessage":"Bad Request - Invalid CallBackURL","requestId":"11397-37867679-4"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:14:30.210+0300	[31mERROR[0m	service/stk_request.go:24	STK Payload  	{"input": {"msisdn":"254728762287","amount":"100"}}
+github.com/kisese/golang_mpesa/pkg/http/stk/service.STKRequestService.ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/service/stk_request.go:24
+github.com/kisese/golang_mpesa/pkg/http/stk/controllers.(*STKController).ProcessSTKPush
+	/Users/kisese/go/src/github.com/kisese/golang_mpesa/pkg/http/stk/controllers/stk.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/kisese/go/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511
+net/http.serverHandler.ServeHTTP
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:2879
+net/http.(*conn).serve
+	/usr/local/Cellar/go/1.17.6/libexec/src/net/http/server.go:1930
+2022-05-31T21:14:30.441+0300	[35mDEBUG[0m	service/stk_request.go:82	Daraja Token Response 	{"response": {"access_token":"oVxh0SBwBNZPFUfDjULc4L0yqd3F","expires_in":"3599"}, "token": "oVxh0SBwBNZPFUfDjULc4L0yqd3F"}
+2022-05-31T21:14:30.441+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer oVxh0SBwBNZPFUfDjULc4L0yqd3F"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:14:30.541+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"errorCode":"400.002.02","errorMessage":"Bad Request - Invalid CallBackURL","requestId":"65078-25759563-2"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T21:14:41.993+0300	[35mDEBUG[0m	service/stk_request.go:80	Daraja Token Response 	{"response": {"access_token":"NEPYlR12Ck1chDexMmM6I9EhIzzO","expires_in":"3599"}, "token": "NEPYlR12Ck1chDexMmM6I9EhIzzO"}
+2022-05-31T21:14:41.993+0300	[35mDEBUG[0m	service/post_request.go:12	PostRequest() 	{"header": {"Authorization":["Bearer NEPYlR12Ck1chDexMmM6I9EhIzzO"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T21:14:42.367+0300	[35mDEBUG[0m	service/post_request.go:32	POST Response 	{"response": {"CheckoutRequestID":"ws_CO_31052022211442476728762287","CustomerMessage":"Success. Request accepted for processing","MerchantRequestID":"82119-82093890-2","ResponseCode":"0","ResponseDescription":"Success. Request accepted for processing"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
