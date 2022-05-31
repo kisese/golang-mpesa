@@ -5,53 +5,61 @@ Demonstrating MPESA STK Push server side setup in Golang. Gin HTTP Framework.
 I went a bit overboard with the logging, I know.
 
 ## Installation
+Requirements.
+- Go 1.13 and above
+- Rabitmq
 
-Use the package manager [go get](https://pkg.go.dev/) to install dependancies for the two separate apps (mpesa-request, mpesa-consumer).
-
-```bash
-go get
-```
-
-## Usage
-You can use a local RabbitMQ setup or use docker compose.
-
-### Docker Compose
-We have a docker compose setup that will handle the initial setup.
+Install the needed dependencies.
 
 ```bash
- docker-compose up --build
+go mod tidy
 ```
 
+### Local Setup
+
+Start your local rabbitmq server or run via docker
+
+Start the main API and the queue consumer
+```bash
+cd cmd
+go run main.go server
+go run main.go worker
+```
 Once this is done. You can access the apps as below.
 
-mpesa-request app
+For an STK Request
+
 ```bash
-http://localhost:8000/stk-request
-```
-mpesa-listener app
-```bash
-http://localhost:8001/stk-callback
+http://localhost:8080/stk-request
+
+POST
+{
+    "msisdn":"254700000000",
+    "amount":"100"
+}
 ```
 
-For env setup, you can find example env files for each of the respective foder,  create your copies and fill as necessary
+If everything is ok you can check your phone for the M-PESA popup.
+Mpesa callbacks will be received on
+```bash
+http://localhost:8080/stk-callback
+```
+
+For env setup, you can find an example env file in the pkg folder,  create your copies and fill as necessary
 ```bash
 cp .env.example .env
 ```
 
-For startup without docker-compose.
-
-Start your local rabbitmq server
-
-Start the Mpesa Consumer App
+### Logging
+To view debug logs navigate to the following directory.
 ```bash
-cd mpesa-consumer
-go run main.go 
+cd /pkg/storage/log/debug.log
 ```
 
-Start the Mpesa Request App
+### Docker
+
 ```bash
-cd mpesa-request
-go run main.go 
+
 ```
 
 ## Contributing

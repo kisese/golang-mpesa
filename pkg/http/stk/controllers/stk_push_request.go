@@ -5,24 +5,22 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/kisese/golang_mpesa/pkg/http/stk/forms"
-	"github.com/kisese/golang_mpesa/pkg/http/stk/service"
 	"github.com/kisese/golang_mpesa/pkg/infrastructure"
+	"github.com/kisese/golang_mpesa/pkg/queue"
 	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 type STKController struct {
-	service service.STKRequestService
 }
 
-func NewSTRRequestController(service service.STKRequestService) STKController {
-	return STKController{
-		service: service,
-	}
+func NewSTRRequestController() STKController {
+	return STKController{}
 }
 
-func (mpesa *STKController) ProcessSTKPush(context *gin.Context) {
+func (mpesa *STKController) ProcessSTKPushRequest(context *gin.Context) {
 
 	var input forms.STKRequest
 	if err := context.ShouldBindJSON(&input); err != nil {
@@ -31,7 +29,7 @@ func (mpesa *STKController) ProcessSTKPush(context *gin.Context) {
 		return
 	}
 
-	mpesa.service.ProcessSTKPush(input)
+	queue.Publish(input, os.Getenv("STK_PUSH_REQUESTS_QUEUE"))
 }
 
 func (mpesa *STKController) ProcessSTKCallback(context *gin.Context) {

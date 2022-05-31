@@ -22,9 +22,9 @@ func NewSTKRoute(
 }
 
 func (location STKRoute) Setup() {
-	router := location.Handler.Gin.Group("/stk") //Router group
+	router := location.Handler.Gin.Group("/mpesa_c2b") //Router group
 	{
-		router.POST("/request", location.controller.ProcessSTKPush)
+		router.POST("/request", location.controller.ProcessSTKPushRequest)
 		router.POST("/callback", location.controller.ProcessSTKCallback)
 	}
 }
