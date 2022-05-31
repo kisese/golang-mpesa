@@ -57,7 +57,7 @@ cp .env.example .env
 ### Logging
 To view debug logs navigate to the following directory.
 ```bash
-cd /pkg/storage/log/debug.log
+/pkg/storage/log/debug.log
 ```
 
 ### Docker
