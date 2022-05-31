@@ -307,3 +307,24 @@ runtime.main
 2022-05-31T22:35:01.628+0300	[35mDEBUG[0m	service/daraja_token.go:38	Daraja Token Response 	{"response": {"access_token":"aYD4p2YUa9AVjM9cy1MMNM5BicLI","expires_in":"3599"}, "token": "aYD4p2YUa9AVjM9cy1MMNM5BicLI"}
 2022-05-31T22:35:01.628+0300	[35mDEBUG[0m	service/http_post.go:12	PostRequest() 	{"header": {"Authorization":["Bearer aYD4p2YUa9AVjM9cy1MMNM5BicLI"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
 2022-05-31T22:35:01.977+0300	[35mDEBUG[0m	service/http_post.go:32	POST Response 	{"response": {"CheckoutRequestID":"ws_CO_31052022223502145723245550","CustomerMessage":"Success. Request accepted for processing","MerchantRequestID":"97167-38050407-2","ResponseCode":"0","ResponseDescription":"Success. Request accepted for processing"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}
+2022-05-31T22:39:01.416+0300	[34mINFO[0m	cmd/main.go:43	worker
+2022-05-31T22:39:01.417+0300	[35mDEBUG[0m	queue/consumer.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:39:01.417+0300	[35mDEBUG[0m	infrastructure/queue.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:39:01.426+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_REQUESTS","Messages":0,"Consumers":0}, "queue": "STK_PUSH_REQUESTS"}
+2022-05-31T22:39:01.427+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_CALLBACKS","Messages":0,"Consumers":0}, "queue": "STK_PUSH_CALLBACKS"}
+2022-05-31T22:39:01.432+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-Qv0AAjEuIxjaclKCAavTeg","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:39:01.436+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-qLISc01KqlD3q3pTHRVSZA","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:39:01.439+0300	[35mDEBUG[0m	infrastructure/queue.go:28	RabbitMQ Publish Queue Status 	{"status": {"Name":"amq.gen-bCA4eLGHJRCJF8TKFRrNxw","Messages":0,"Consumers":0}, "queue": ""}
+2022-05-31T22:39:01.439+0300	[35mDEBUG[0m	queue/consumer.go:29	RabbitMQ Consumer Begin listening on queues 
+2022-05-31T22:39:01.440+0300	[35mDEBUG[0m	consumers/stk_push_request.go:19	Queue Listening 	{"queue": "STK_PUSH_REQUESTS"}
+2022-05-31T22:39:01.440+0300	[35mDEBUG[0m	queue/consumer.go:39	RabbitMQ Consumer Successfully Connected to our RabbitMQ Instance
+2022-05-31T22:39:01.440+0300	[35mDEBUG[0m	queue/consumer.go:40	 [*] - Waiting for messages
+2022-05-31T22:39:03.623+0300	[34mINFO[0m	cmd/main.go:35	main app
+2022-05-31T22:40:15.125+0300	[35mDEBUG[0m	queue/publisher.go:14	Initialising RabbitMQ Publish 	{"queue": "STK_PUSH_REQUESTS", "payload": {"msisdn":"254723245550","amount":"100"}}
+2022-05-31T22:40:15.125+0300	[35mDEBUG[0m	infrastructure/queue.go:9	Initialising RabbitMQ Main Listener 
+2022-05-31T22:40:15.134+0300	[35mDEBUG[0m	queue/publisher.go:41	RabbitMQ Publish Queue Status 	{"status": {"Name":"STK_PUSH_REQUESTS","Messages":0,"Consumers":1}, "queue": "STK_PUSH_REQUESTS", "payload": {"msisdn":"254723245550","amount":"100"}}
+2022-05-31T22:40:15.134+0300	[35mDEBUG[0m	queue/publisher.go:74	RabbitMQ Publish Successfully Published Message to Queue ~> true	{"queue": "STK_PUSH_REQUESTS", "payload": {"msisdn":"254723245550","amount":"100"}}
+2022-05-31T22:40:15.135+0300	[35mDEBUG[0m	consumers/stk_push_request.go:26	RabbitMQ Consumer Received Message {"msisdn":"254723245550","amount":"100"}
+2022-05-31T22:40:15.424+0300	[35mDEBUG[0m	service/daraja_token.go:38	Daraja Token Response 	{"response": {"access_token":"0VkJU2Ra3TA7XAxSZnHtNVSp6IQQ","expires_in":"3599"}, "token": "0VkJU2Ra3TA7XAxSZnHtNVSp6IQQ"}
+2022-05-31T22:40:15.425+0300	[35mDEBUG[0m	service/http_post.go:12	PostRequest() 	{"header": {"Authorization":["Bearer 0VkJU2Ra3TA7XAxSZnHtNVSp6IQQ"],"Content-Type":["application/json"],"cache-control":["no-cache"]}}
+2022-05-31T22:40:15.723+0300	[35mDEBUG[0m	service/http_post.go:32	POST Response 	{"response": {"CheckoutRequestID":"ws_CO_31052022224015905723245550","CustomerMessage":"Success. Request accepted for processing","MerchantRequestID":"19150-25976129-2","ResponseCode":"0","ResponseDescription":"Success. Request accepted for processing"}, "url": "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"}

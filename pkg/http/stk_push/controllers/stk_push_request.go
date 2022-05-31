@@ -32,7 +32,7 @@ func (mpesa *STKController) ProcessSTKPushRequest(context *gin.Context) {
 
 	queue.Publish(input, os.Getenv("STK_PUSH_REQUESTS_QUEUE"))
 
-	utils.SuccessJSON(context, http.StatusOK, "Location Received")
+	utils.SuccessJSON(context, http.StatusOK, "STK Push Request Received")
 }
 
 func (mpesa *STKController) ProcessSTKCallback(context *gin.Context) {
