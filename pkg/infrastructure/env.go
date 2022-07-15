@@ -9,7 +9,7 @@ import (
 //LoadEnv loads environment variables from .env file
 func LoadEnv() {
 
-	err := godotenv.Load(utils.GetPath() + `/pkg/.env`)
+	err := godotenv.Load(utils.GetPath() + `../pkg/.env`)
 
 	//err := godotenv.Load(".env")
 	if err != nil {
