@@ -53,7 +53,7 @@ For env setup, you can find an example env file in the pkg folder,  create your 
 ```bash
 cp .env.example .env
 ```
-
+There is an additional helper for the env file, on utils/getpath where you can specify your working directory name
 ### Logging
 To view debug logs navigate to the following directory.
 ```bash

@@ -2,7 +2,6 @@ package infrastructure
 
 import (
 	"fmt"
-	"github.com/kisese/golang_mpesa/pkg/utils"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

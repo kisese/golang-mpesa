@@ -3,7 +3,7 @@ package queue
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/kisese/golang_mpesa/pkg/infrastructure"
+	. "github.com/kisese/golang_mpesa/pkg/infrastructure"
 	"github.com/streadway/amqp"
 	"strconv"
 )
@@ -11,16 +11,16 @@ import (
 func Publish(input interface{}, queue string) bool {
 	//init rabbitmq
 	status := true
-	infrastructure.Log.Debugw("Initialising RabbitMQ Publish ", "queue", queue, "payload", input)
+	Log.Debugw("Initialising RabbitMQ Publish ", "queue", queue, "payload", input)
 
-	conn, err := infrastructure.Dial()
+	conn, err := Dial()
 
 	// Let's start by opening a channel to our RabbitMQ instance
 	// over the connection we have already established
 	ch, err := conn.Channel()
 	if err != nil {
 		status = false
-		infrastructure.Log.Errorw("RabbitMQ Publish Connection Error ", "error", err, "queue", queue)
+		Log.Errorw("RabbitMQ Publish Connection Error ", "error", err, "queue", queue)
 	}
 	defer ch.Close()
 
@@ -38,7 +38,7 @@ func Publish(input interface{}, queue string) bool {
 	// We can print out the status of our Queue here
 	// this will information like the amount of messages on
 	// the queue
-	infrastructure.Log.Debugw("RabbitMQ Publish Queue Status ", "status", queueDeclare, "queue", queue, "payload", input)
+	Log.Debugw("RabbitMQ Publish Queue Status ", "status", queueDeclare, "queue", queue, "payload", input)
 
 	// Handle any errors if we were unable to create the queue
 	if err != nil {
@@ -49,7 +49,7 @@ func Publish(input interface{}, queue string) bool {
 	inputBytes, err := json.Marshal(input)
 	if err != nil {
 		status = false
-		infrastructure.Log.Errorw("RabbitMQ Publish Payload Marshal Error ", "error", err, "queue", queue)
+		Log.Errorw("RabbitMQ Publish Payload Marshal Error ", "error", err, "queue", queue)
 		return status
 	}
 
@@ -67,10 +67,10 @@ func Publish(input interface{}, queue string) bool {
 
 	if err != nil {
 		status = false
-		infrastructure.Log.Errorw("RabbitMQ Publish Payload Publish Error ", "error", err, "queue", queue)
+		Log.Errorw("RabbitMQ Publish Payload Publish Error ", "error", err, "queue", queue)
 		fmt.Println(err)
 	}
 
-	infrastructure.Log.Debugw("RabbitMQ Publish Successfully Published Message to Queue ~> "+strconv.FormatBool(status), "queue", queue, "payload", input)
+	Log.Debugw("RabbitMQ Publish Successfully Published Message to Queue ~> "+strconv.FormatBool(status), "queue", queue, "payload", input)
 	return status
 }

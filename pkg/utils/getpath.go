@@ -6,7 +6,7 @@ import (
 )
 
 func GetPath() string {
-	const projectDirName = "golang_mpesa"
+	const projectDirName = "golang-mpesa"
 
 	projectName := regexp.MustCompile(`^(.*` + projectDirName + `)`)
 	currentWorkDirectory, _ := os.Getwd()

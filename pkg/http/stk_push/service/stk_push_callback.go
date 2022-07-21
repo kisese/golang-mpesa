@@ -2,7 +2,7 @@ package service
 
 import (
 	"encoding/json"
-	"github.com/kisese/golang_mpesa/pkg/infrastructure"
+	. "github.com/kisese/golang_mpesa/pkg/infrastructure"
 	"github.com/tidwall/gjson"
 )
 
@@ -12,7 +12,7 @@ func ProcessSTKCallback(request map[string]interface{}) {
 
 	CheckoutRequestID := gjson.Get(body, "Body.stkCallback.CheckoutRequestID")
 
-	infrastructure.Log.Debugw("Request json", "request", body, "CheckoutRequestID", CheckoutRequestID,
+	Log.Debugw("Request json", "request", body, "CheckoutRequestID", CheckoutRequestID,
 		"len", len(CheckoutRequestID.Str))
 
 	if len(CheckoutRequestID.Str) > 0 {
@@ -20,7 +20,7 @@ func ProcessSTKCallback(request map[string]interface{}) {
 
 		CheckoutRequestID := gjson.Get(body, "Body.stkCallback.CheckoutRequestID")
 
-		infrastructure.Log.Debugw("Request json", "request", body, "CheckoutRequestID", CheckoutRequestID,
+		Log.Debugw("Request json", "request", body, "CheckoutRequestID", CheckoutRequestID,
 			"len", len(CheckoutRequestID.Str))
 
 		//Queue callback
@@ -28,7 +28,7 @@ func ProcessSTKCallback(request map[string]interface{}) {
 		CallbackMetadata := gjson.Get(body, "Body.stkCallback.CallbackMetadata")
 
 		if CallbackMetadata.Exists() {
-			infrastructure.Log.Debugw("CallbackMetadata exists")
+			Log.Debugw("CallbackMetadata exists")
 
 			amount := gjson.Get(body, "Body.stkCallback.CallbackMetadata.Item.0.Value")
 			reference := gjson.Get(body, "Body.stkCallback.CallbackMetadata.Item.1.Value")
@@ -42,7 +42,7 @@ func ProcessSTKCallback(request map[string]interface{}) {
 			success := "1"
 			reason := gjson.Get(body, "Body.stkCallback.ResultDesc")
 
-			infrastructure.Log.Debugw("CallbackMetadata Successful Payment decoded",
+			Log.Debugw("CallbackMetadata Successful Payment decoded",
 				"amount", amount,
 				"reference", reference,
 				"msisdn", msisdn,
@@ -53,7 +53,7 @@ func ProcessSTKCallback(request map[string]interface{}) {
 
 			//TODO Process MPESA successful STK payment
 		} else {
-			infrastructure.Log.Debugw("CallbackMetadata parsing error ", "callback", body)
+			Log.Debugw("CallbackMetadata parsing error ", "callback", body)
 			amount := ""
 			reference := ""
 			msisdn := ""
@@ -61,7 +61,7 @@ func ProcessSTKCallback(request map[string]interface{}) {
 			success := "0"
 			reason := gjson.Get(body, "Body.stkCallback.ResultDesc")
 
-			infrastructure.Log.Debugw("CallbackMetadata Failed! Payment decoded",
+			Log.Debugw("CallbackMetadata Failed! Payment decoded",
 				"amount", amount,
 				"reference", reference,
 				"msisdn", msisdn,
@@ -74,6 +74,6 @@ func ProcessSTKCallback(request map[string]interface{}) {
 		}
 
 	} else {
-		infrastructure.Log.Errorw("STK Callback Parse Error")
+		Log.Errorw("STK Callback Parse Error")
 	}
 }
