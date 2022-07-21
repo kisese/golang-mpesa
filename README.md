@@ -54,17 +54,6 @@ For env setup, you can find an example env file in the pkg folder,  create your 
 cp .env.example .env
 ```
 There is an additional helper for the env file, on utils/getpath where you can specify your working directory name
-### Logging
-To view debug logs navigate to the following directory.
-```bash
-/pkg/storage/log/debug.log
-```
-
-### Docker
-
-```bash
-
-```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
