@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/kisese/golang_mpesa/pkg/http/stk_push/forms"
 	"github.com/kisese/golang_mpesa/pkg/http/stk_push/models"
+	"github.com/kisese/golang_mpesa/pkg/http/stk_push/utils"
 	"net/http"
 	"os"
 	"time"
@@ -46,9 +47,9 @@ func (mpesa STKRequestService) ProcessSTKPush() {
 	}
 
 	payload, _ := json.Marshal(requestBody)
-	PostRequest(
+	utils.PostRequest(
 		payload,
-		getHeader(getDarajaToken()),
+		getHeader(utils.GetDarajaToken()),
 		os.Getenv("DARAJA_STK_URL"))
 }
 

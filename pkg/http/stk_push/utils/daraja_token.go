@@ -1,4 +1,4 @@
-package service
+package utils
 
 import (
 	b64 "encoding/base64"
@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func getDarajaToken() interface{} {
+func GetDarajaToken() interface{} {
 	credential := b64.StdEncoding.EncodeToString([]byte(
 		os.Getenv("DARAJA_CONSUMER_KEY") +
 			":" +
